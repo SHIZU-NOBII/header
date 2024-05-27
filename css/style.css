@@ -1,0 +1,250 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+/* MONSERRAT 400 600 700 */
+/* ========== CSS BASE ========== */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: var(--body-color);
+    color: var(--text-color);
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+
+h1,h2,h3,h4{
+    color: var(--title-color);
+    font-weight: var(--font-semi-bold);
+}
+
+.container{
+    max-width: 1150px;
+    margin-inline: 1.5rem;
+}
+
+.section{
+    padding-block: 5rem 1rem;
+}
+
+.grid{
+    display: grid;
+    gap: 3rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+
+
+
+/* ========== CSS VARIABLES ========== */
+
+:root{
+         --header-height: 3.5rem;
+         /* ========== COLORS ========== */
+         --body-color: rgb(19,20,22);
+         --black-color: rgb(10, 10, 11);
+         --text-color: rgb(172, 175, 185);
+         --white-color: rgb(249, 250, 250);
+         --title-color: rgb(249, 250, 250);
+         --first-color: rgb(131, 201, 74);
+         --shadow-img: drop-shadow(0 0 48px  rgba(131,201,74,.4));
+    
+    
+        /* ========== FONTS ========== */
+        --body-font: "Montserrat", sans-serif;
+        --biggest-font-size: 2.25rem;
+        --normal-font-size: .938rem ; 
+    
+    
+        /* ========== FONTS WEIGHT ========== */
+        --font-regular: 400;
+        --font-semi-bold: 600;
+        --font-bold: 700;
+                
+        /* ========== ZINDEX ========== */
+        --zindex-max: 100 ;
+}
+
+/* ========== HEADER & NAV ========== */
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    z-index: var(--zindex-max);
+}
+
+.nav{
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-logo,
+.nav-close,
+.nav-action,
+.nav-toggle{
+    display: flex;
+    color: var(--title-color);
+    cursor: pointer;
+}
+
+.nav-logo{
+    color: var(--white-color);
+    font-weight: var(--font-semi-bold);
+    column-gap: .5rem;
+    align-items: center;
+}
+
+.nav-logo i{
+    font-weight: initial;
+    color: var(--first-color);
+    font-size: 1.25rem;
+}
+
+.nav-action{
+    column-gap: .5rem;
+    font-size: 1.25rem;
+    align-items: center;
+}
+
+/* ========= BLUR-HEADER ========== */
+.header::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(12, 13, 19, 0.2);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    z-index: -1;
+}
+
+/* ========== NAVIGATIONBAR ON MOBILE SCREEN ========== */
+@media screen and (max-width: 1150px) {
+    .nav-menu{
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100%;
+        width: 75%;
+        background-color: rgba(12, 13, 19, 0.2);;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        padding: 6rem 3rem 0;
+        transition: right .4s;
+    }
+}
+
+.nav-list{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.nav-link{
+    color: var(--title-color);
+    font-weight: var(--font-semi-bold);
+    text-transform: uppercase;
+    transition: color .4s;
+}
+
+.nav-link:hover{
+    color: var(--first-color);
+}
+
+.nav-close{
+    position: absolute;
+    top: 1.15rem;
+    right: 1.5rem;
+    font-size: 1.25rem;
+}
+
+/* ========== SHOW MENU ========== */
+.show-menu{
+    right: 0;
+}
+
+/* ========== SHOW MENU ========== */
+.home-container{
+    padding-top: 2.5rem;
+    row-gap: 2rem;
+}
+
+.home-img{
+    width: 250px;
+    justify-self: center;
+    filter: var(--shadow-img);
+}
+
+.home-data{
+    text-align: center;
+}
+
+.home-title{
+    font-size: var(--biggest-font-size);
+    font-weight: var(--font-bold);
+    margin-bottom: 1rem;
+}
+
+.home-title span{
+    color: var(--first-color);
+}
+
+.home-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: .5rem;
+}
+
+.button{
+    background-color: var(--white-color);
+    color: var(--black-color);
+    font-weight: var(--font-bold);
+    padding: .5rem 1.5rem .5rem .5rem;
+    border-radius: 4rem;
+    display: inline-flex;
+    align-items: center;
+    column-gap: .75rem;
+}
+
+.button span{
+    background-color: var(--first-color);
+    padding: .5rem;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    display: grid;
+    align-items: center;
+    transition: transform .4s;
+}
+
+.button:hover span{
+    transform: translateX(.15rem) rotate(-30deg);
+}
+
+.button-link{
+    color: var(--white-color);
+    text-decoration: underline;
+    font-weight: var(--font-bold);
+    transition:  color .4s;
+}
+
+.button-link:hover{
+    color: var(--first-color);
+}
